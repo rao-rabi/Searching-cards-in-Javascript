@@ -16,20 +16,27 @@
 <body>
 
 
-    <h1 class="text-center text-success mt-3" id="prompmsg">Search Deatils of Students Here</h1>
+    <h1 class="text-center text-success mt-3" id="prompmsg">Search Details of Students Here</h1>
 
     <!-- search bar -->
 
-    <div class="d-flex justify-content-between rounded-pill border border-success border-3 mt-2 w-50 container mb-4">
+    <div class="d-flex justify-content-between rounded-pill border border-success border-3 mt-2 col-lg-6 col-md-10 col-12 container mb-4">
         <input class="border-0 w-100 p-3 bg-transparent border-end border-2 border-success" style="outline: none;"
-            type="search" id="searchbox" name="searchbox">
+            type="search" id="searchbox" name="searchbox" placeholder="Search by Name or University">
         <button class="border-0 bg-transparent" onclick="searchingFunc()"><i
                 class="fa-solid fa-magnifying-glass fa-bounce pt-4 text-success p-3 lead"></i></button>
     </div>
 
+    <!-- radio buttons -->
+
+    <div class="fw-bold fs-4 text-success d-flex justify-content-center mt-2">
+        Graduated <input type="radio" value="graduated" name="grade" id="graduated" class="me-3 ms-2 bg-success" onchange="searchRadio(event)">
+        In-Progress <input type="radio" value="in-progress" name="grade" id="in-progress" class="ms-2" onchange="searchRadio(event)">
+    </div>
+
     <!-- cards -->
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-4">
         <div id="cardContainer" class="d-flex justify-content-center flex-wrap"></div>
     </div>
 

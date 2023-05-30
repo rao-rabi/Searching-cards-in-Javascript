@@ -34,7 +34,7 @@ let dataStudent = [
     {
         id: "252105",
         name: "Mian Usama",
-        status: "Not-Graduated",
+        status: "Graduated",
         university: "None"
     },
     {
@@ -87,7 +87,7 @@ function renderData(dataStudent) {
     dataStudent.forEach((data) => {
 
         cardContainer.innerHTML += `
-        <div class="card col p-4 mb-2 col-3 me-2 lead fw-normal border border-warning border-5">
+        <div class="card p-4 mb-2 col-lg-3 col-md-6 col-12 me-2 lead fw-normal border border-warning border-5">
         <p><span class="h4">ID:</span> ${data.id}</p>
         <p><span class="h4">Name:</span> ${data.name}</p>
         <p><span class="h4">Status:</span> ${data.status}</p>
@@ -112,5 +112,23 @@ function searchingFunc() {
     renderData(fiteredData)
 }
 
+//searching through radio buttons
 
-
+function searchRadio(e) {
+    // console.log("e-->",e);
+    if (e.target.value === "graduated") {
+        let filteredGraduated = dataStudent.filter((item) => {
+            let graduated = item.status.includes('Graduated');
+            return graduated;
+        })
+        renderData(filteredGraduated);
+       
+    }
+    else if(e.target.value === "in-progress"){
+        let filteredProgress = dataStudent.filter((item) => {
+                let inProgress = item.status.includes('In-Progress');
+                return inProgress;
+            })
+            renderData(filteredProgress)
+    }
+}
