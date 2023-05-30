@@ -2,76 +2,76 @@
 
 let dataStudent = [
     {
-        id:"252101",
-        name:"Rao Rabi",
-        status:"In-Progress",
-        university:"GCUF"
+        id: "252101",
+        name: "Rao Rabi",
+        status: "In-Progress",
+        university: "GCUF"
     },
     {
-        id:"252102",
-        name:"Rana Subhan",
-        status:"Graduated",
-        university:"GCUF"
+        id: "252102",
+        name: "Rana Subhan",
+        status: "Graduated",
+        university: "GCUF"
     },
     {
-        id:"425516",
-        name:"Nasir Zia",
-        status:"In-Progress",
-        university:"NUML"
+        id: "425516",
+        name: "Nasir Zia",
+        status: "In-Progress",
+        university: "NUML"
     },
     {
-        id:"252103",
-        name:"Mian Umar",
-        status:"In-Progress",
-        university:"GCUF"
+        id: "252103",
+        name: "Mian Umar",
+        status: "In-Progress",
+        university: "GCUF"
     },
     {
-        id:"252104",
-        name:"Dr. Zohaib",
-        status:"In-Progress",
-        university:"GCUF"
+        id: "252104",
+        name: "Dr. Zohaib",
+        status: "In-Progress",
+        university: "GCUF"
     },
     {
-        id:"252105",
-        name:"Mian Usama",
-        status:"Not-Graduated",
-        university:"None"
+        id: "252105",
+        name: "Mian Usama",
+        status: "Not-Graduated",
+        university: "None"
     },
     {
-        id:"252106",
-        name:"Asad Ali",
-        status:"In-Progress",
-        university:"GCUF"
+        id: "252106",
+        name: "Asad Ali",
+        status: "In-Progress",
+        university: "GCUF"
     },
     {
-        id:"252101",
-        name:"Rao Rabi",
-        status:"Graduated",
-        university:"NUML"
+        id: "252101",
+        name: "Rao Rabi",
+        status: "Graduated",
+        university: "NUML"
     },
     {
-        id:"425519",
-        name:"Azhar Ali",
-        status:"In-Progress",
-        university:"NUML"
+        id: "425519",
+        name: "Azhar Ali",
+        status: "In-Progress",
+        university: "NUML"
     },
     {
-        id:"345612",
-        name:"Rana Subhan",
-        status:"In-Progress",
-        university:"UET"
+        id: "345612",
+        name: "Rana Subhan",
+        status: "In-Progress",
+        university: "UET"
     },
     {
-        id:"355623",
-        name:"Rana Ahmad",
-        status:"Graduated",
-        university:"UET"
+        id: "355623",
+        name: "Rana Ahmad",
+        status: "Graduated",
+        university: "UET"
     },
     {
-        id:"252123",
-        name:"Rai Hamza",
-        status:"In-Progress",
-        university:"GCUF"
+        id: "252123",
+        name: "Rai Hamza",
+        status: "In-Progress",
+        university: "GCUF"
     }
 ];
 
@@ -82,9 +82,9 @@ const cardContainer = document.getElementById("cardContainer")
 
 // data entry in cards
 
-function renderData(dataStudent){
+function renderData(dataStudent) {
     cardContainer.innerHTML = "";
-    dataStudent.forEach((data) =>{
+    dataStudent.forEach((data) => {
 
         cardContainer.innerHTML += `
         <div class="card col p-4 mb-2 col-3 me-2 lead fw-normal border border-warning border-5">
@@ -96,6 +96,20 @@ function renderData(dataStudent){
     });
 
 }
-    renderData(dataStudent)
+
+
+//getting searchbar input data
+
+function searchingFunc() {
+    const searchInput = document.getElementById('searchbox');
+    const searchedItem = searchInput.value.toLowerCase();
+
+    let fiteredData = dataStudent.filter((item) => {
+        let uniMatch = item.university.toLowerCase().includes(searchedItem);
+        let nameMatch = item.name.toLowerCase().includes(searchedItem);
+        return uniMatch || nameMatch;
+    });
+    renderData(fiteredData)
+}
 
 
