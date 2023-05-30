@@ -129,6 +129,6 @@ function searchRadio(e) {
                 let inProgress = item.status.includes('In-Progress');
                 return inProgress;
             })
-            renderData(filteredProgress)
+        renderData(filteredProgress)
     }
 }
