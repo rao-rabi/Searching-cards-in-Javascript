@@ -98,7 +98,7 @@ function renderData(dataStudent) {
 }
 
 
-//getting searchbar input data
+//searching through name and uni name
 
 function searchingFunc() {
     const searchInput = document.getElementById('searchbox');
@@ -111,5 +111,6 @@ function searchingFunc() {
     });
     renderData(fiteredData)
 }
+
 
 
